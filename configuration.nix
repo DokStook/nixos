@@ -58,7 +58,18 @@ in
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+
+  # NVIDIA drivers, etc.
   services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.opengl.enable = true;
+
+
+  # Nvidia drivers
+  # export __NV_PRIME_RENDER_OFFLOAD=1
+  # export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-GO
+  # export __GLX_VENDOR_LIBRARY_NAME=nvidia
+  # export __VK_LAYER_NV_optimus=NVIDIA__only
+  # exec -a "$0" "$@"
 
   # Enable the Plasma 5 Desktop Environment.
   services.xserver.displayManager.lightdm.enable = true;
@@ -90,27 +101,10 @@ in
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    # term
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    git
-    alacritty
-    fish
-    # gui
-    firefox
-    betterdiscord-installer
-    qbittorrent
-    xfce.thunar
-    gnome.nautilus
-    keepassxc
-    # sys tools
-    xmobar
-    nitrogen
-    picom
-    dmenu
+  # environment.systemPackages = with pkgs; [
+  # *pkg name*
 
-  ];
+  # ];
 
   # propr
   nixpkgs.config.allowUnfree = true;
@@ -124,6 +118,7 @@ in
    };
 
   # List services that you want to enable:
+  services.mullvad-vpn.enable = true;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
