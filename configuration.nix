@@ -143,5 +143,3 @@ in
   # RAM + max(1GB, sqrt(RAM)) = 8802.000.
   swapDevices = [ { device = "/swapfile"; size = 1024; } ];
 }
-
-pre { font-family: "Liberation Mono", monospace; font-size: 10pt; background: transparent }p { line-height: 115%; margin-bottom: 0.1in; background: transparent }
